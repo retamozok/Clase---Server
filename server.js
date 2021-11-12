@@ -7,7 +7,7 @@ import routesProducts from "./src/routes/routesProducts.js"
 
 
 const app = express()
-routesProducts(app) 
+
 const __dirname = path.resolve();
 app.use(morgan('dev'))
 app.use(express.static(path.join(__dirname, '/public')));
@@ -23,6 +23,9 @@ app.engine("hbs", handlebars({
 app.set('views', path.join(__dirname, 'src/views'))
 app.set('view engine', 'hbs');
 // servidor
+
+routesProducts(app) 
+
 app.listen(3000, () => {
     console.log(`el servidor esta corriendo en http://localhost:${3000}`)
   })
